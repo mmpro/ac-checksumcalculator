@@ -1,0 +1,14 @@
+{
+  "name": "ac-checksumcalculator",
+  "version": "1.0.0",
+  "description": "Calculates MD5 checksum of an S3 file and returns the result.",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Poepping",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.103.0"
+  }
+}

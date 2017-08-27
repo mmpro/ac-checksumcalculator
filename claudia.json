@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "ac-checksumcalculator-executor",
+    "name": "ac-checksumcalculator",
+    "region": "eu-central-1"
+  }
+}
