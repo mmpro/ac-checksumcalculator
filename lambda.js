@@ -67,7 +67,7 @@ exports.handler = function (event, context, cb) {
 
     readstream.on('end', function(err) {
       if(err) return cb(err)
-      let md5checksum = hash.digest('base64')
+      let md5checksum = hash.digest('hex')
       console.log("Result MD5", md5checksum)
       return cb(null, md5checksum)
     });
