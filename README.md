@@ -61,7 +61,7 @@ event-dev.json
 ## Create the function for the first time
 If you use the function for the first time, use the following call to create the AWS lambda function. You need your AWS CLI setup - see the AWS documentation for more details.
 ```
-claudia create --region eu-central-1 --handler lambda.handler --name ac-checksumcalculator
+claudia create --region eu-central-1 --handler lambda.handler --name ac-checksumcalculator --profile DEV
 ```
 
 ## Thanks
