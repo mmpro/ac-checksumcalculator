@@ -34,13 +34,13 @@ function loadConfig(context, cb){
   return cb(env_config)
 }
 
-exports.handler = function (event, context, cb) {
+exports.handler =  (event, context, cb) => {
   console.log("EVENT", event)
 
   // allows for using callbacks as finish/error-handlers
   context.callbackWaitsForEmptyEventLoop = false;
 
-  loadConfig(context, function(env_config) {
+  loadConfig(context, (env_config) => {
     const s3 = new AWS.S3({
       accessKeyId:      env_config.accessKeyId,
       secretAccessKey:  env_config.secretAccessKey,
@@ -56,16 +56,16 @@ exports.handler = function (event, context, cb) {
 
     let readstream = s3.getObject(s3Params).createReadStream()
 
-    readstream.on('data', function(data) {
+    readstream.on('data', (data) => {
       hash.update(data)
     })
 
-    readstream.on('error', function(err) {
+    readstream.on('error', (err) => {
       console.log("Error", err)
       return cb(err)
     })
 
-    readstream.on('end', function(err) {
+    readstream.on('end', (err) => {
       if(err) return cb(err)
       let md5checksum = hash.digest('hex')
       console.log("Result MD5", md5checksum)
