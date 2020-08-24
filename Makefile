@@ -13,3 +13,12 @@ update-dev:
 update-live:
 	@echo "Updating PRODUCTION"
 	node_modules/.bin/claudia update --version production --timeout 900 --set-env-from-json config/env/production.json
+
+lint-fix:
+	./node_modules/.bin/eslint lambda.js --fix
+
+commit:
+	@node ./node_modules/ac-semantic-release/lib/commit.js
+
+release:
+	@node ./node_modules/ac-semantic-release/lib/release.js
